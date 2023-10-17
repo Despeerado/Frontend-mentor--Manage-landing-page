@@ -145,45 +145,21 @@ textarea:not([rows]) {
 	}
 }
 
-.visually-hidden {
-  position: absolute;
-	position: absolute !important;
-	width: 1px !important;
-	height: 1px !important;
-	padding: 0 !important;
-	margin: -1px !important;
-	overflow: hidden !important;
-	clip: rect(0,0,0,0) !important;
-	white-space: nowrap !important;
-	border: 0 !important;
-}
-
-.container {
-	--max-width: 1110px;
-	--padding: 1rem;
-
-	width: min(var(--max-width), 100% - (var(--padding))*2);
-	margin-inline: auto;
-}
-
-.even-columns {
-	display: grid;
-	gap: 1rem;
-}
-
-/* Why used em? It is only unit which is  */
-@media (min-width: 50em) {
-	.even-columns {
-		grid-auto-flow: column;
-		grid-auto-columns: 1fr;
-	}
-}
 /* General styling */
 
 body {
 	font-family: var(--ff-body);
 	font-size: var(--fs-body);
 	color: var(--clr-primary-400);
+}
+
+p:not([class]) {
+	opacity: 0.7;
+	max-width: 32ch;
+}
+
+p[data-width="wide"] {
+	max-width: 42ch;
 }
 
 /* button */
@@ -410,4 +386,50 @@ body {
 	.d-md-inline-flex {
 		display: inline-flex;
 	}
+}
+
+.container {
+	--max-width: 1110px;
+	--padding: 1rem;
+
+	width: min(var(--max-width), 100% - (var(--padding))*2);
+	margin-inline: auto;
+}
+
+/* .flow * + * {
+	outline: 4px solid purple; */
+/* } */
+
+:where(.flow :not(:first-child)) {
+	margin-top: var(--flow-spacer, 3em);
+}
+
+.flow-sm {
+	--flow-spacer: 1.5em;
+}
+
+.even-columns {
+	display: grid;
+	gap: 1rem;
+}
+
+/* Why used em? It is only unit which is  */
+@media (min-width: 50em) {
+	.even-columns {
+		grid-auto-flow: column;
+		grid-auto-columns: 1fr;
+	}
+}
+
+.visually-hidden {
+  position: absolute;
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0,0,0,0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
 }
