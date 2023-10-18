@@ -4,11 +4,14 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.css">
 	<link rel="stylesheet" href="style.css" type="text/css">
-	<title>Document</title>
+	<script src="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.js" defer></script>
+	<script src="main.js" type="module" defer></script>
 </head>
 
 <body>
@@ -22,8 +25,6 @@
 					</svg>
 				</a>
 				<button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
-					<img src="/images/icon-hamburger.svg" class="icon-hamburger" alt="" aria-hidden="true">
-					<img src="/images/icon-close.svg" class="icon-close" alt="" aria-hidden="true">
 					<span class="visually-hidden">Menu</span>
 				</button>
 				<nav class="primary-navigation" id="primary-navigation">
@@ -39,9 +40,12 @@
 			</div>
 		</div>
 	</header>
+
+	<!-- MAIN  -->
+
 	<main>
-		<section class="padding-block-900">
-			<div class="container">
+		<section class="hero text-center-sm-only">
+			<div class=" container">
 				<div class="even-columns">
 					<div class="flow">
 						<h1 class="fs-primary-heading fw-bold">Bring everyone together to build better products.</h1>
@@ -49,7 +53,8 @@
 							in view.</p>
 						<button class="button">Get Started</button>
 					</div>
-					<div><img src="/images/illustration-intro.svg" alt="">
+					<div class="hero__image">
+						<img class="mx-auto" src=" /images/illustration-intro.svg" alt="">
 					</div>
 				</div>
 			</div>
@@ -74,7 +79,7 @@
 										vision. Go from tracking
 										progress at the milestone
 										level all the way
-										done to the smallest of details. Never lose sight of the bigger picture again.</pd>
+										done to the smallest of details. Never lose sight of the bigger picture again.</p>
 								</div>
 							</li>
 							<li>
@@ -103,10 +108,58 @@
 				</div>
 			</div>
 		</section>
-		<section class="carousel padding-block-700">
-			<h2 class="fs-secondary-heading fw-bold">What they've said</h2>
+		<section class="carousel padding-block-700 text-center">
+			<h2 class=" fs-secondary-heading fw-bold">What they've said</h2>
+			<ul class="slider text-center">
+				<li>
+					<img src="images/avatar-anisha.png" alt="">
+					<div class="slider-content flow" style="--flow-spacer: 1rem;">
+						<h3 class="fw-bold">Anisha Li</h3>
+						<p data-width="wide">“Manage has supercharged our team’s workflow. The ability to maintain visibility on
+							larger milestones at all times keeps
+							everyone motivated.”
+						</p>
+					</div>
+				</li>
+				<li>
+					<img src="images/avatar-ali.png" alt="">
+					<div class="slider-content flow" style="--flow-spacer: 1rem;">
+						<h3 class="fw-bold">Ali Bravo</h3>
+						<p data-width="wide">“We have been able to cancel so many other subscriptions since using Manage. There is
+							no
+							more cross-channel
+							confusion
+							and everyone is much more focused.”
+						</p>
+					</div>
+				</li>
+				<li>
+					<img src="images/avatar-richard.png" alt="">
+					<div class="slider-content flow" style="--flow-spacer: 1rem;">
+						<h3 class="fw-bold">Richard Watts</h3>
+						<p data-width="wide">“Manage allows us to provide structure and process. It keeps us organized and focused.
+							I
+							can’t stop recommending them to
+							everyone I talk to!”
+						</p>
+					</div>
+				</li>
+				<li>
+					<img src="images/avatar-shanai.png" alt="">
+					<div class="slider-content flow" style="--flow-spacer: 1rem;">
+						<h3 class="fw-bold">Shanai Gough</h3>
+						<p data-width="wide">“Their software allows us to track, manage and collaborate on our projects from
+							anywhere.
+							It keeps the whole team
+							in-sync without being intrusive.”
+						</p>
+					</div>
+				</li>
+			</ul>
+
 			<button class="button">Get Started</button>
 		</section>
+
 		<section class="cta padding-block-900 bg-accent-400 text-neutral-100 ">
 			<div class=" container">
 				<div class="even-columns vertical-align-center justify-self-end-md">
@@ -118,7 +171,9 @@
 			</div>
 		</section>
 	</main>
+
 	<!-- FOOTER -->
+
 	<footer class="primary-footer padding-block-700 bg-neutral-900 text-neutral-100">
 		<div class="container">
 			<div class="primary-footer-wrapper even-columns">
@@ -181,7 +236,8 @@
 
 	</footer>
 	<!-- JS -->
-	<script src="main.js" type="module"></script>
+
+
 </body>
 
 </html>

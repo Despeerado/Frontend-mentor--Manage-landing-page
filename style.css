@@ -7,6 +7,7 @@
 	--clr-primary-400: hsl(228, 39%, 23%);
 
 	--clr-neutral-900: hsl(232, 12%, 13%);
+	--clr-neutral-200: hsl(0 0% 97%);
 	--clr-neutral-100: hsl(0 0% 100%);
 
 	--ff-primary: 'Be Vietnam Pro', sans-serif; 
@@ -44,7 +45,7 @@
 }
 
 /* value will change in future */
-@media (min-width: 50em) {
+@media (min-width: 47em) {
 	:root {
 		--fs-body: var(--fs-500);
 		--fs-primary-heading: var(--fs-900);
@@ -238,7 +239,12 @@ p[data-width="wide"] {
 	color: var(--clr-accent-400);
 }
 
-@media (max-width: 50em) {
+@media (max-width: 47em) {
+	.primary-header[data-overlay] {
+		position: relative;
+		z-index: 999;
+	}
+
 	.primary-navigation {
 		display: none;
 		position: fixed;
@@ -269,6 +275,7 @@ p[data-width="wide"] {
 		display: block;
 		/* position: fixed;	 */
 	}
+
 	.mobile-nav-toggle {
 		position: fixed;
 		display: block;
@@ -279,11 +286,24 @@ p[data-width="wide"] {
 		background: transparent;
 		border: 0;
 		padding: 0.5em;
+		width: 1.75rem;
+		aspect-ratio: 1;
+
+		background-image: url("/images/icon-hamburger.svg");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+	}
+
+	.mobile-nav-toggle[aria-expanded="true"] {
+		background-image: url("/images/icon-close.svg");
+		background-repeat: no-repeat;
+		background-size: contain;
 	}
 	
-	.mobile-nav-toggle .icon-close {
+	/* .mobile-nav-toggle .icon-close {
 		display: none;
-	}
+	} */
 }
 
 .opened {
@@ -300,7 +320,7 @@ p[data-width="wide"] {
 	margin-inline: auto;
 }
 
-@media (max-width: 50em) {
+@media (max-width: 47em) {
 	.text-center-sm-only {
 		text-align: center;
 	}
@@ -383,6 +403,9 @@ p[data-width="wide"] {
 	margin-block-end: var(--size-700);
 }
 
+.mx-auto {
+	margin-inline: auto;
+}
 /* COLORS */
 
 .bg-primary-400 {
@@ -409,7 +432,7 @@ p[data-width="wide"] {
 	display: none;
 }
 /* 	UTILITES	 */
-@media(min-width: 50em) {
+@media(min-width: 47em) {
 	.d-md-inline-flex {
 		display: inline-flex;
 	}
@@ -428,7 +451,7 @@ p[data-width="wide"] {
 	align-items: center;
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
 
 	.justify-self-end-md {
 		justify-self: end;
@@ -458,7 +481,7 @@ p[data-width="wide"] {
 }
 
 /* Why used em? It is only unit which is  */
-@media (min-width: 50em) {
+@media (min-width: 47em) {
 	.even-columns {
 		grid-auto-flow: column;
 		grid-auto-columns: 1fr;
@@ -478,7 +501,131 @@ p[data-width="wide"] {
 	border: 0 !important;
 }
 
-/* Footer */
+/*  SLIDER */
+
+  .slider {
+    display: flex;
+		gap: var(--size-600);
+		list-style: none;
+		padding-inline: var(--container-padding);
+  }
+
+	.a11y-slider-container {
+		/* max-width: 60rem;
+		padding: 2rem; */
+		margin-block: var(--size-700);
+		margin-inline: var(--size-400);
+	}
+
+  .slider > * {
+		position: relative;
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+	@media (min-width: 30em) {
+		.slider {
+			scroll-padding-inline: 25px;
+		}
+
+		.slider > * {
+			width:50%;
+		}
+
+		.a11y-slider-container {
+			margin-inline: 0;
+		}
+	}
+
+	@media (min-width: 47em) {
+		.slider > * {
+			width: 35%;
+		}
+	}
+	
+	.slider-content {
+		border-radius: var(--size-100);
+		background: var(--clr-neutral-200);
+		padding: var(--size-700) var(--size-600);
+	}
+
+	.slider img {
+		width: var(--size-800);
+		position: relative;
+		top: calc(var(--size-800)/2);
+		margin-inline: auto;
+		/* top: -32px; */
+		/* left: 50%;  */
+		/* transform: translate(-50%, -50%); */
+	}
+
+	.a11y-slider-dots {
+		display: flex;
+		gap: var(--size-300);
+		margin-block: var(--size-500);
+		justify-content: center;
+	}
+
+	.a11y-slider-dots li {
+		display: block;
+		width: 12px;
+		height: 12px;
+		padding: 0;
+		
+		/* margin: 0 6px; */
+		color: #fff;
+	}
+	
+	.a11y-slider-dots li button {
+		display: block;
+		font-size: 0;
+		text-indent: -9999px;
+		/* border: 1px solid !important; */
+		border: 1px solid var(--clr-accent-400);
+		background-color: transparent;
+		width: 100%;
+		height: 100%;
+		border-radius: 100%;
+}
+
+.a11y-slider-dots li button.active {
+	background-color: var(--clr-accent-400);
+}
+
+.a11y-slider-dots li button:hover {
+	background-color: var(--clr-accent-400);
+}
+
+.hero__image::before {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	right: 0;
+	top: 0;
+	width: 87%;
+	max-height: 70vh;
+	/* max-height: 70dvh; */
+	aspect-ratio: 1 / 1.2;
+	background-image: 
+	url("/images/bg-tablet-pattern.svg");
+	background-repeat: no-repeat;
+	background-position: bottom left;
+}
+
+@media (min-width: 47em) {
+	.hero__image::before {
+		width: 45%;
+	}	
+}
+
+@media (max-width: 47em) {
+	.hero__image {
+	/* position: relative; */
+	order: -1;
+	}
+}
+
+	/* Footer */
 
 .primary-footer {
 	--logo-color: var(--clr-neutral-100);
@@ -507,7 +654,7 @@ display: flex;
 flex-direction: column-reverse;
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
 	.primary-footer-wrapper {
 		grid-template-areas: 
 		'logo-social nav form';
@@ -520,7 +667,7 @@ flex-direction: column-reverse;
 	}
 }
 
-@media (max-width: 50em) {
+@media (max-width: 47em) {
 	.primary-footer-wrapper > * {
 		/* outline: 2px solid red; */
 		margin-inline: auto;
@@ -585,7 +732,7 @@ padding: var(--size-300) var(--size-300);
 	fill: var(--clr-accent-400);
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
 	.social-icon {
 		width: var(--size-500);
 	}
@@ -597,7 +744,7 @@ padding: var(--size-300) var(--size-300);
 	isolation: isolate;
 	text-align: center;
 }
-@media (min-width: 50em) {
+@media (min-width: 47em) {
 	.cta {
 		text-align: left;
 	}
