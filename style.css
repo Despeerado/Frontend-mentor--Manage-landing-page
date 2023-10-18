@@ -638,7 +638,7 @@ p[data-width="wide"] {
 	transform: scale(40%);
 	z-index: -1;
 	left: 70%;
-	bottom: 90%;
+	bottom: 60%;
 	width: 100px;
 	aspect-ratio: 1 / 1.2;
 	border: 1px solid red;
